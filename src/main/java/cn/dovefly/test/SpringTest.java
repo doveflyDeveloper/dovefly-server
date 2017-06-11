@@ -15,9 +15,9 @@ public class SpringTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring/spring-context.xml");
 
         ThreadPoolTaskExecutor threadPoolTaskExecutor = (ThreadPoolTaskExecutor)ctx.getBean("threadPoolTaskExecutor");
-        threadPoolTaskExecutor.setCorePoolSize(2);
-        threadPoolTaskExecutor.setMaxPoolSize(100);
-        threadPoolTaskExecutor.setQueueCapacity(1000);
+//        threadPoolTaskExecutor.setCorePoolSize(2);
+//        threadPoolTaskExecutor.setMaxPoolSize(100);
+        threadPoolTaskExecutor.setQueueCapacity(25);
 //        System.out.println("=" + threadPoolTaskExecutor.getMaxPoolSize());
         threadPoolTaskExecutor.submit(new Runnable() {
             @Override
