@@ -338,3 +338,96 @@ Caused by: java.net.UnknownHostException: www.dovefly.cn
 	at com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOMParser.parse(SchemaDOMParser.java:530)
 	at com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDHandler.getSchemaDocument(XSDHandler.java:2179)
 	... 32 more
+[INFO] [2017-06-05 16:24:13][org.springframework.context.annotation.AnnotationConfigApplicationContext]Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:24:13 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:24:14][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-05 16:31:23][org.springframework.context.annotation.AnnotationConfigApplicationContext]Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:31:23 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:31:23][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-05 16:31:41][org.springframework.context.annotation.AnnotationConfigApplicationContext]Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:31:41 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:31:41][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-05 16:31:42][org.springframework.context.annotation.AnnotationConfigApplicationContext]Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:31:41 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:41:30][org.springframework.context.annotation.AnnotationConfigApplicationContext]Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:41:30 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:41:30][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-05 16:42:38][org.springframework.context.annotation.AnnotationConfigApplicationContext]Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:42:38 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:42:38][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-05 16:42:39][org.springframework.context.annotation.AnnotationConfigApplicationContext]Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:42:38 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:43:43][org.springframework.context.annotation.AnnotationConfigApplicationContext]Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:43:43 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:43:43][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-05 16:43:43][org.springframework.context.annotation.AnnotationConfigApplicationContext]Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:43:43 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:44:45][org.springframework.context.annotation.AnnotationConfigApplicationContext]Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:44:45 CST 2017]; root of context hierarchy
+[INFO] [2017-06-05 16:44:46][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-05 16:44:46][org.springframework.context.annotation.AnnotationConfigApplicationContext]Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@2aae9190: startup date [Mon Jun 05 16:44:45 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 10:44:54][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 10:44:54 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 10:44:54][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 10:44:55][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 10:44:56][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 10:44:57][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 10:47:38][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 10:47:38 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 10:47:39][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 10:47:39][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 10:47:39][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 10:47:41][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 10:53:19][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 10:53:19 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 10:53:19][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 10:53:20][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 10:53:20][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 10:53:21][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:03:30][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:03:30 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:03:30][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:03:31][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:03:31][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:03:32][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:04:44][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:04:44 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:04:44][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:04:45][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:04:45][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:04:46][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:06:07][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:06:07 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:06:07][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:06:08][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:06:08][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:06:09][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:22:43][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:22:43 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:22:43][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:22:44][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:22:44][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:22:45][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:23:44][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:23:44 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:23:44][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:23:44][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:23:44][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:23:45][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:25:03][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:25:03 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:25:04][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:25:04][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:25:04][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:25:05][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:26:23][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:26:23 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:26:23][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:26:23][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:26:23][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:26:24][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:42:30][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:42:30 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:42:30][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:42:31][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:42:31][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:42:32][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:47:49][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:47:49 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:47:49][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:47:50][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:47:50][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:47:51][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:48:35][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:48:35 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:48:35][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:48:36][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:48:36][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:48:37][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:50:06][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:50:06 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:50:06][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:50:06][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:50:06][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:50:08][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
+[INFO] [2017-06-11 11:51:06][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61064425: startup date [Sun Jun 11 11:51:06 CST 2017]; root of context hierarchy
+[INFO] [2017-06-11 11:51:07][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-context.xml]
+[INFO] [2017-06-11 11:51:07][org.springframework.context.support.PropertySourcesPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+[INFO] [2017-06-11 11:51:07][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-06-11 11:51:09][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor]Initializing ExecutorService  'threadPoolTaskExecutor'
