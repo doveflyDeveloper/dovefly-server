@@ -15,52 +15,56 @@ public class SpringTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:spring/spring-context.xml");
 
         ThreadPoolTaskExecutor threadPoolTaskExecutor = (ThreadPoolTaskExecutor)ctx.getBean("threadPoolTaskExecutor");
-//        threadPoolTaskExecutor.setCorePoolSize(10);
+        threadPoolTaskExecutor.setCorePoolSize(2);
+        threadPoolTaskExecutor.setMaxPoolSize(100);
+        threadPoolTaskExecutor.setQueueCapacity(1000);
 //        System.out.println("=" + threadPoolTaskExecutor.getMaxPoolSize());
-//        threadPoolTaskExecutor.submit(new Runnable() {
-//            @Override
-//            public void run() {
-//                while (true) {
-//                    try {
-//                        Thread.sleep(1000);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                    System.out.println("ActiveCount=" + threadPoolTaskExecutor.getActiveCount());
-//                    System.out.println("CorePoolSize=" + threadPoolTaskExecutor.getCorePoolSize());
-//                    System.out.println("MaxPoolSize=" + threadPoolTaskExecutor.getMaxPoolSize());
-//                    System.out.println("PoolSize=" + threadPoolTaskExecutor.getPoolSize());
-//                    System.out.println("-------------------------");
-//                }
-//
-//            }
-//        });
+        threadPoolTaskExecutor.submit(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("ActiveCount=" + threadPoolTaskExecutor.getActiveCount());
+                    System.out.println("CorePoolSize=" + threadPoolTaskExecutor.getCorePoolSize());
+                    System.out.println("MaxPoolSize=" + threadPoolTaskExecutor.getMaxPoolSize());
+                    System.out.println("PoolSize=" + threadPoolTaskExecutor.getPoolSize());
+                    System.out.println("-------------------------");
+                }
 
-        for (long i = 0; i < Integer.MAX_VALUE + 1000L; i++) {
-            final long d = i;
+            }
+        });
+
+        for (int i = 0; i < 5000; i++) {
+            final int d = i;
             threadPoolTaskExecutor.submit(new Runnable() {
                 @Override
                 public void run() {
                     try {
-                        Thread.sleep(200);
+                        Thread.sleep(10000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     System.out.println(Thread.currentThread().getId() + "=" + d);
 //                    if (d > Integer.MAX_VALUE) {
 //                    }
+//                    System.out.println("ActiveCount=" + threadPoolTaskExecutor.getActiveCount());
+//                    System.out.println("CorePoolSize=" + threadPoolTaskExecutor.getCorePoolSize());
+//                    System.out.println("MaxPoolSize=" + threadPoolTaskExecutor.getMaxPoolSize());
+//                    System.out.println("PoolSize=" + threadPoolTaskExecutor.getPoolSize());
+//                    System.out.println("-------------------------");
                 }
             });
-            System.out.println(i);
-            if (i > Integer.MAX_VALUE ) {
 
-                System.out.println("ActiveCount=" + threadPoolTaskExecutor.getActiveCount());
-                System.out.println("CorePoolSize=" + threadPoolTaskExecutor.getCorePoolSize());
-                System.out.println("MaxPoolSize=" + threadPoolTaskExecutor.getMaxPoolSize());
-                System.out.println("PoolSize=" + threadPoolTaskExecutor.getPoolSize());
-                System.out.println("-------------------------");
+//            System.out.println("ActiveCount=" + threadPoolTaskExecutor.getActiveCount());
+//            System.out.println("CorePoolSize=" + threadPoolTaskExecutor.getCorePoolSize());
+//            System.out.println("MaxPoolSize=" + threadPoolTaskExecutor.getMaxPoolSize());
+//            System.out.println("PoolSize=" + threadPoolTaskExecutor.getPoolSize());
+//            System.out.println("-------------------------");
 
-            }
 //            System.out.println("=" + threadPoolTaskExecutor.getPoolSize());
 //            if (i % 10 == 0) {
 //                try {
