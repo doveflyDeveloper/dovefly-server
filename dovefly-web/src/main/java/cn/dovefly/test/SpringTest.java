@@ -19,6 +19,7 @@ public class SpringTest {
 //        threadPoolTaskExecutor.setMaxPoolSize(100);
         threadPoolTaskExecutor.setQueueCapacity(25);
 //        System.out.println("=" + threadPoolTaskExecutor.getMaxPoolSize());
+        threadPoolTaskExecutor.initialize();
         threadPoolTaskExecutor.submit(new Runnable() {
             @Override
             public void run() {
