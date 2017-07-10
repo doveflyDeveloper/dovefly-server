@@ -1,4 +1,4 @@
-package cn.dovefly.module.user.entity;
+package cn.dovefly.orm.user.entity;
 
 public class User {
     private Integer id;

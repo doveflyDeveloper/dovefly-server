@@ -1,6 +1,6 @@
-package cn.dovefly.module.user.service;
+package cn.dovefly.service.user;
 
-import cn.dovefly.module.user.entity.User;
+import cn.dovefly.orm.user.entity.User;
 
 /**
  * Created by fengchunming on 2017/4/24.

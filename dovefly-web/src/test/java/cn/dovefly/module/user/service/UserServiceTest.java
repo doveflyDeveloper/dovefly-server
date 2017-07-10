@@ -1,7 +1,8 @@
 package cn.dovefly.module.user.service;
 
+import cn.dovefly.orm.user.entity.User;
+import cn.dovefly.service.user.IUserService;
 import cn.dovefly.test.common.BaseTest;
-import cn.dovefly.module.user.entity.User;
 import org.junit.Test;
 
 import javax.annotation.Resource;

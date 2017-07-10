@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.dovefly.module.user.dao.UserMapper">
-    <resultMap id="BaseResultMap" type="cn.dovefly.module.user.entity.User">
+<mapper namespace="cn.dovefly.orm.user.repo.UserMapper">
+    <resultMap id="BaseResultMap" type="cn.dovefly.orm.user.entity.User">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="user_name" property="userName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
@@ -20,12 +20,12 @@
     delete from t_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="cn.dovefly.module.user.entity.User">
+    <insert id="insert" parameterType="cn.dovefly.orm.user.entity.User">
     insert into t_user (id, user_name, password, age)
     values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{age,jdbcType=INTEGER})
   </insert>
-    <insert id="insertSelective" parameterType="cn.dovefly.module.user.entity.User">
+    <insert id="insertSelective" parameterType="cn.dovefly.orm.user.entity.User">
         insert into t_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -56,7 +56,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.module.user.entity.User">
+    <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.user.entity.User">
         update t_user
         <set>
             <if test="userName != null">
@@ -71,7 +71,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="cn.dovefly.module.user.entity.User">
+    <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.user.entity.User">
     update t_user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

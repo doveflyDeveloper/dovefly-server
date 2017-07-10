@@ -16,6 +16,11 @@
     <packaging>war</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>cn.dovefly</groupId>
+            <artifactId>dovefly-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

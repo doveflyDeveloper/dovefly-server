@@ -14,6 +14,7 @@
     <modules>
         <module>../dovefly-web</module>
         <module>../dovefly-service</module>
+        <module>../dovefly-orm</module>
         <module>../dovefly-core</module>
     </modules>
 
@@ -68,7 +69,7 @@
         <dependencies>
             <dependency>
                 <groupId>cn.dovefly</groupId>
-                <artifactId>dovefly-core</artifactId>
+                <artifactId>dovefly-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -78,7 +79,12 @@
             </dependency>
             <dependency>
                 <groupId>cn.dovefly</groupId>
-                <artifactId>dovefly-web</artifactId>
+                <artifactId>dovefly-orm</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.dovefly</groupId>
+                <artifactId>dovefly-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
@@ -398,7 +404,7 @@
         <!--</dependency>-->
     </dependencies>
     <build>
-        <finalName>dovefly</finalName>
+        <finalName>dovefly-pom</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -437,38 +443,6 @@
               </executions>
             </plugin>
             -->
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.5</version>
-                <configuration>
-                    <configurationFile>${basedir}/src/main/resources/plugins/generatorConfig.xml</configurationFile>
-                    <verbose>true</verbose>
-                    <overwrite>true</overwrite>
-                </configuration>
-                <!--<executions>-->
-                <!--<execution>-->
-                <!--<id>Generate MyBatis Artifacts</id>-->
-                <!--<phase>none</phase>-->
-                <!--<goals>-->
-                <!--<goal>generate</goal>-->
-                <!--</goals>-->
-                <!--</execution>-->
-                <!--</executions>-->
-                <dependencies>
-                    <dependency>
-                        <groupId>org.mybatis.generator</groupId>
-                        <artifactId>mybatis-generator-core</artifactId>
-                        <version>${mybatis-generator.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>${mysql-connector-java.version}</version>
-                        <scope>runtime</scope>
-                    </dependency>
-                </dependencies>
-            </plugin>
         </plugins>
     </build>
 </project>

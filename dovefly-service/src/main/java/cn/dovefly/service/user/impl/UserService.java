@@ -1,8 +1,8 @@
-package cn.dovefly.module.user.service.impl;
+package cn.dovefly.service.user.impl;
 
-import cn.dovefly.module.user.dao.UserMapper;
-import cn.dovefly.module.user.entity.User;
-import cn.dovefly.module.user.service.IUserService;
+import cn.dovefly.orm.user.entity.User;
+import cn.dovefly.orm.user.repo.UserMapper;
+import cn.dovefly.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,8 +1,8 @@
-package cn.dovefly.module.user.controller;
+package cn.dovefly.controller.user;
 
 import cn.dovefly.framework.schema.People;
-import cn.dovefly.module.user.entity.User;
-import cn.dovefly.module.user.service.IUserService;
+import cn.dovefly.orm.user.entity.User;
+import cn.dovefly.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

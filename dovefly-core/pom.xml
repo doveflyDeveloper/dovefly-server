@@ -17,4 +17,8 @@
     <artifactId>dovefly-core</artifactId>
     <packaging>jar</packaging>
 
+    <build>
+        <finalName>dovefly-core</finalName>
+    </build>
+
 </project>

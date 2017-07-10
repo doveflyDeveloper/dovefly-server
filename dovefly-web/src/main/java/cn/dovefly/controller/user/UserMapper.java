@@ -1,6 +1,6 @@
-package cn.dovefly.module.user.dao;
+package cn.dovefly.controller.user;
 
-import cn.dovefly.module.user.entity.User;
+import cn.dovefly.orm.user.entity.User;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
