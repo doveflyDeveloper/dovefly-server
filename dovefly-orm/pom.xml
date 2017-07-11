@@ -8,10 +8,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>dovefly-pom</artifactId>
         <groupId>cn.dovefly</groupId>
+        <artifactId>dovefly-server</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../dovefly-pom/pom.xml</relativePath>
     </parent>
 
     <groupId>cn.dovefly</groupId>
@@ -57,7 +56,13 @@
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
                         <version>${mysql-connector-java.version}</version>
-                        <scope>runtime</scope>
+                        <!--<scope>runtime</scope>-->
+                    </dependency>
+                    <dependency>
+                        <groupId>cn.dovefly</groupId>
+                        <artifactId>dovefly-plugin</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
+                        <!--<scope>runtime</scope>-->
                     </dependency>
                 </dependencies>
             </plugin>

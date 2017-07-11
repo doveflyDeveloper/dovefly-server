@@ -2,20 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <name>dovefly-pom</name>
+    <name>dovefly-server</name>
     <url>http://maven.apache.org</url>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.dovefly</groupId>
-    <artifactId>dovefly-pom</artifactId>
+    <artifactId>dovefly-server</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-        <module>../dovefly-web</module>
-        <module>../dovefly-service</module>
-        <module>../dovefly-orm</module>
-        <module>../dovefly-core</module>
+        <module>dovefly-web</module>
+        <module>dovefly-service</module>
+        <module>dovefly-orm</module>
+        <module>dovefly-core</module>
+        <module>dovefly-plugin</module>
     </modules>
 
     <properties>
@@ -404,7 +405,7 @@
         <!--</dependency>-->
     </dependencies>
     <build>
-        <finalName>dovefly-pom</finalName>
+        <finalName>dovefly-server</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,0 +1,2324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dovefly.orm.employee.repo.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.dovefly.orm.employee.entity.Employee">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_sex" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="emp_age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="emp_salary" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_type" javaType="java.lang.Boolean" jdbcType="BIT" />
+      <arg column="emp_level" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="emp_summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="emp_desc" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, emp_code, emp_name, emp_sex, emp_age, emp_salary, emp_type, emp_level, emp_summary, 
+    emp_desc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_employee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee (emp_code, emp_name, emp_sex, 
+      emp_age, emp_salary, emp_type, 
+      emp_level, emp_summary, emp_desc
+      )
+    values (#{empCode,jdbcType=VARCHAR}, #{empName,jdbcType=VARCHAR}, #{empSex,jdbcType=CHAR}, 
+      #{empAge,jdbcType=INTEGER}, #{empSalary,jdbcType=DECIMAL}, #{empType,jdbcType=BIT}, 
+      #{empLevel,jdbcType=DECIMAL}, #{empSummary,jdbcType=VARCHAR}, #{empDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.dovefly.orm.employee.entity.Employee" useGeneratedKeys="true">
+    insert into test_employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        emp_code,
+      </if>
+      <if test="empName != null">
+        emp_name,
+      </if>
+      <if test="empSex != null">
+        emp_sex,
+      </if>
+      <if test="empAge != null">
+        emp_age,
+      </if>
+      <if test="empSalary != null">
+        emp_salary,
+      </if>
+      <if test="empType != null">
+        emp_type,
+      </if>
+      <if test="empLevel != null">
+        emp_level,
+      </if>
+      <if test="empSummary != null">
+        emp_summary,
+      </if>
+      <if test="empDesc != null">
+        emp_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empCode != null">
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    <set>
+      <if test="empCode != null">
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="empName != null">
+        emp_name = #{empName,jdbcType=VARCHAR},
+      </if>
+      <if test="empSex != null">
+        emp_sex = #{empSex,jdbcType=CHAR},
+      </if>
+      <if test="empAge != null">
+        emp_age = #{empAge,jdbcType=INTEGER},
+      </if>
+      <if test="empSalary != null">
+        emp_salary = #{empSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="empType != null">
+        emp_type = #{empType,jdbcType=BIT},
+      </if>
+      <if test="empLevel != null">
+        emp_level = #{empLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="empSummary != null">
+        emp_summary = #{empSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="empDesc != null">
+        emp_desc = #{empDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.dovefly.orm.employee.entity.Employee">
+    update test_employee
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      emp_name = #{empName,jdbcType=VARCHAR},
+      emp_sex = #{empSex,jdbcType=CHAR},
+      emp_age = #{empAge,jdbcType=INTEGER},
+      emp_salary = #{empSalary,jdbcType=DECIMAL},
+      emp_type = #{empType,jdbcType=BIT},
+      emp_level = #{empLevel,jdbcType=DECIMAL},
+      emp_summary = #{empSummary,jdbcType=VARCHAR},
+      emp_desc = #{empDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

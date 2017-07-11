@@ -7,7 +7,7 @@
 
     <parent>
         <groupId>cn.dovefly</groupId>
-        <artifactId>dovefly-pom</artifactId>
+        <artifactId>dovefly-server</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
