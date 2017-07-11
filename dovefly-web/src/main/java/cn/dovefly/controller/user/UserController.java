@@ -1,6 +1,5 @@
 package cn.dovefly.controller.user;
 
-import cn.dovefly.framework.schema.People;
 import cn.dovefly.orm.user.entity.User;
 import cn.dovefly.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +20,9 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-    @Autowired
-    private People people1;
-
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     public Object get(HttpServletRequest request, @PathVariable("id") Integer id) throws Exception {
         User user = userService.getUserById(id);
-        System.out.println(people1.getName());
         return user;
     }
 

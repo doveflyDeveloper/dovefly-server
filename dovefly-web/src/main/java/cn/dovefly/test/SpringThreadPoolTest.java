@@ -1,6 +1,5 @@
 package cn.dovefly.test;
 
-import cn.dovefly.module.test.entity.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -43,8 +42,6 @@ public class SpringThreadPoolTest {
                 @Override
                 public void run() {
                     try {
-                        Test test1 = new Test();
-                        test1.setId(1);
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
