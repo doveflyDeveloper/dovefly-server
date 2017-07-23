@@ -17,8 +17,8 @@ public class UserServiceTest extends BaseTest {
     public void testQueryById() throws Exception {
         int bookId = 1000;
         System.out.println("--------------------userService"+userService);
-        UserService service = (UserService) userService;
-        System.out.println("=========================="+service);
+        UserService service2 = (UserService) userService;
+        System.out.println("=========================="+service2);
 
         User book = userService.getUserById(bookId);
 
