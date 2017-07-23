@@ -2,6 +2,7 @@ package cn.dovefly.module.user.service;
 
 import cn.dovefly.orm.user.entity.User;
 import cn.dovefly.service.user.IUserService;
+import cn.dovefly.service.user.impl.UserService;
 import cn.dovefly.test.common.BaseTest;
 import org.junit.Test;
 
@@ -15,14 +16,24 @@ public class UserServiceTest extends BaseTest {
     @Test
     public void testQueryById() throws Exception {
         int bookId = 1000;
+        System.out.println("--------------------userService"+userService);
+        UserService service = (UserService) userService;
+        System.out.println("=========================="+service);
+
         User book = userService.getUserById(bookId);
+
+
         System.out.println(book);
     }
 
     @Test
     public void testAdd() throws Exception {
-        int update = userService.add(new User());
-        System.out.println("update=" + update);
+        User user = new User();
+        user.setAge(10);
+        user.setUserName("gege");
+        user.setPassword("121212");
+       userService.add(user);
+
     }
 
 }

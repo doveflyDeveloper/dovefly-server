@@ -23,6 +23,9 @@
     </context:component-scan>
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!-- 扫描service包下所有使用注解的类型 -->
+    <context:component-scan base-package="cn.dovefly.service"></context:component-scan>
+    <context:component-scan base-package="cn.dovefly.orm"></context:component-scan>
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
         <!-- 数据库基本信息配置 -->
@@ -78,7 +81,7 @@
     </bean>
 
     <!-- 配置基于注解的声明式事务 -->
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 
     <dove:people id="people1" name="格格" age="18" />
 

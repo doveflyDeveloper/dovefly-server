@@ -17,11 +17,19 @@ public class UserService implements IUserService {
     private UserMapper userMapper;
 
     @Transactional
-    public int add(User info) {
-        return userMapper.insert(info);
+    public int add(User info) throws RuntimeException{
+         userMapper.insert(info);
+        throw new RuntimeException();
     }
 
+
     public User getUserById(int userId) {
+        User user = new User();
+        user.setAge(10);
+        user.setUserName("sidandan");
+        user.setPassword("121212");
+        System.out.println("--------------------this"+this);
+        this.add(user);
         return userMapper.selectByPrimaryKey(userId);
     }
 }

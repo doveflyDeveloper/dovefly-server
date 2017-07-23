@@ -1,7 +1,5 @@
 package cn.dovefly.test;
 
-import cn.dovefly.framework.schema.Animal;
-import cn.dovefly.framework.schema.People;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
