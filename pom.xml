@@ -17,6 +17,7 @@
         <module>dovefly-orm</module>
         <module>dovefly-core</module>
         <module>dovefly-plugin</module>
+        <module>dovefly-generator-maven-plugin</module>
     </modules>
 
     <properties>
