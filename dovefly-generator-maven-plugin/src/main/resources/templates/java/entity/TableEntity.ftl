@@ -1,7 +1,7 @@
 package ${table.pojos.entity.packageName};
 
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.sql.Date;
 import java.sql.Timestamp;
 

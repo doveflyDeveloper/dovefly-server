@@ -30,6 +30,6 @@ import ${table.pojos.entity.fullClassName};
 public class ${table.pojos.controller.className} {
 	
 	@Autowired
-	protected I${table.pojos.service.className} service;
+	protected ${table.pojos.service.className} service;
 	
 }

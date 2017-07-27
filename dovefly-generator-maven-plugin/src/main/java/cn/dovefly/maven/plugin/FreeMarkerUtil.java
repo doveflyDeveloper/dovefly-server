@@ -1,27 +1,17 @@
 package cn.dovefly.maven.plugin;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import cn.dovefly.maven.plugin.util.DBHelper;
-import cn.dovefly.maven.plugin.vo.Pojo;
 import cn.dovefly.maven.plugin.vo.DbTable;
-
+import cn.dovefly.maven.plugin.vo.Pojo;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+
+import java.io.*;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * freemarker 模板工具
@@ -94,8 +84,10 @@ public class FreeMarkerUtil {
 //		}
 //	}
 	
-	public static void generateFiles(DbTable table) {
+	public static void generateFiles(String tableName) {
 		try {
+			DbTable table = new DBHelper().getTable(tableName);
+
 			if (table == null) {
 				return;
 			}
@@ -136,18 +128,14 @@ public class FreeMarkerUtil {
 		} catch (TemplateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
 	}
 
 	public static void main(String[] args) {
-		try {
-			DbTable table = new DBHelper().getTable("test_employee");
-			generateFiles(table);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		generateFiles("test_employee");
 
 	}
 }

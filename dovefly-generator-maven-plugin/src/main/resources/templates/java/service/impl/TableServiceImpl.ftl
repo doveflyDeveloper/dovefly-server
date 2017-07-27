@@ -32,7 +32,7 @@ public class ${table.pojos.serviceImpl.className} implements ${table.pojos.servi
 			return 0;
 		}
 		if (entity.get${table.keyColumn.propertyName?cap_first}() != null && entity.get${table.keyColumn.propertyName?cap_first}() > 0) {
-			return repo.update(entity);
+			return repo.updateByPrimaryKey(entity);
 		} else {
 			return repo.insert(entity);
 		}
@@ -41,12 +41,12 @@ public class ${table.pojos.serviceImpl.className} implements ${table.pojos.servi
 	@Override
 	@Transactional
 	public int delete(${table.keyColumn.javaTypeShort} ${table.keyColumn.propertyName}) {
-		return repo.deleteById(id);
+		return repo.deleteByPrimaryKey(id);
 	}
 
 	@Override
 	public ${table.pojos.entity.className} get(${table.keyColumn.javaTypeShort} ${table.keyColumn.propertyName}) {
-		return repo.selectByKey(key);
+		return repo.selectByPrimaryKey(${table.keyColumn.propertyName});
 	}
 
 	@Override
