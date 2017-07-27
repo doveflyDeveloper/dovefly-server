@@ -37,7 +37,9 @@ public class MyMojo extends AbstractMojo {
 //    private File outputDirectory;
 
     public void execute() throws MojoExecutionException {
-        getLog().info( "Hello, world. my name is yunqi" );
+        getLog().info( "代码开始生成。。。" );
+        FreeMarkerUtil.generateFiles("test_employee");
+        getLog().info( "代码生成完成。。。" );
     }
 //
 //    public void execute() throws MojoExecutionException {

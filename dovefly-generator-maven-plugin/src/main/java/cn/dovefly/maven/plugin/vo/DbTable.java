@@ -1,15 +1,15 @@
 package cn.dovefly.maven.plugin.vo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class DbTable {
 	//所有属性字段都是小写
 	private String tableName = "";//表名
 	private String comment = "";//表备注
+	private String author = System.getProperty("user.name", "");
+	private String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 	private DbColumn keyColumn;//主键列
 	private List<DbColumn> columns;//表中所有列
 
@@ -45,6 +45,22 @@ public class DbTable {
 
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public DbColumn getKeyColumn() {

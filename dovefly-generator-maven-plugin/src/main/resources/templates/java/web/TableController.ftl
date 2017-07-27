@@ -22,8 +22,8 @@ import ${table.pojos.entity.fullClassName};
 /**
  * ${table.comment}
  *
- * @author fengcm
- * @date 2017-07-27
+ * @author ${table.author}
+ * @date ${table.date}
  */
 @Controller
 @RequestMapping("/${table.pojos.controller.className?uncap_first}")

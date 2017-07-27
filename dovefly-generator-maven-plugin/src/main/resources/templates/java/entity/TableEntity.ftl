@@ -8,8 +8,8 @@ import java.sql.Timestamp;
 /**
  * ${table.comment}
  * 
- * @author fengcm
- * @date 2017-07-27
+ * @author ${table.author}
+ * @date ${table.date}
  */
 public class ${table.pojos.entity.className} implements Serializable {
 	private static final long serialVersionUID = 1L;

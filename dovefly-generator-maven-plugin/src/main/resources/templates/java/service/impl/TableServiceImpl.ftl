@@ -13,9 +13,9 @@ import java.util.List;
 
 /**
  * ${table.comment}
- * 
- * @author fengcm
- * @date 2017-07-27
+ *
+ * @author ${table.author}
+ * @date ${table.date}
  */
 @Service
 public class ${table.pojos.serviceImpl.className} implements ${table.pojos.service.className} {

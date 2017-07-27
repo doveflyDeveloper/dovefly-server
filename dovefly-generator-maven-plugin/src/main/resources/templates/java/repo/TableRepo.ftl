@@ -9,11 +9,11 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* ${table.comment}
-*
-* @author fengcm
-* @date 2017-07-27
-*/
+ * ${table.comment}
+ *
+ * @author ${table.author}
+ * @date ${table.date}
+ */
 @Repository
 public class ${table.pojos.repo.className} {
 

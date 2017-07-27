@@ -4,11 +4,11 @@ import ${table.pojos.entity.fullClassName};
 import java.util.List;
 
 /**
-* ${table.comment}
-*
-* @author fengcm
-* @date 2017-07-27
-*/
+ * ${table.comment}
+ *
+ * @author ${table.author}
+ * @date ${table.date}
+ */
 public interface ${table.pojos.service.className} {
 
     int save(${table.pojos.entity.className} entity);
