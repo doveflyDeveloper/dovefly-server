@@ -7,11 +7,11 @@ public class ConfigConstants {
 	
 	public final static String default_driver = "com.mysql.jdbc.Driver";
 	
-	public final static String default_url = "jdbc:mysql://localhost:3306/dove?jdbcCompliantTruncation=false";
+	public final static String default_url = "jdbc:mysql://139.196.235.181:3306/dovefly?jdbcCompliantTruncation=false";
 	
-	public final static String default_userName = "root";
+	public final static String default_userName = "dovefly";
 	
-	public final static String default_password = "root";
+	public final static String default_password = "dovefly";
 	
 	public final static String default_dbProductName = "MySQL";
 	
