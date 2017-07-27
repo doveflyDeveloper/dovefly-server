@@ -1,4 +1,4 @@
-package ${table.entityPackageName};
+package ${table.pojos.entity.packageName};
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -11,7 +11,7 @@ import java.sql.Timestamp;
  * @author fengcm
  * @date 2017-07-27
  */
-public class ${table.entityClassName} implements Serializable {
+public class ${table.pojos.entity.className} implements Serializable {
 	private static final long serialVersionUID = 1L;
 	//----------开始entity的属性 ----------
 	<#list table.columns as column>

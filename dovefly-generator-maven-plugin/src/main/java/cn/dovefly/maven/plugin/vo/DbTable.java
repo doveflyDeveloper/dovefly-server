@@ -1,7 +1,9 @@
 package cn.dovefly.maven.plugin.vo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class DbTable {
@@ -11,7 +13,7 @@ public class DbTable {
 	private DbColumn keyColumn;//主键列
 	private List<DbColumn> columns;//表中所有列
 
-	private List<Pojo> pojos;
+	private Map<String, Pojo> pojos;
 
 	public DbTable(String tableName, String comment, DbColumn keyColumn, List<DbColumn> columns) {
 		this.tableName = tableName;
@@ -19,13 +21,13 @@ public class DbTable {
 		this.keyColumn = keyColumn;
 		this.columns = columns;
 
-		this.pojos = new ArrayList<>();
-		pojos.add(new Pojo("dovefly-orm/src/main/resources/mybatis/mapper/employee", "cn.dovefly.orm.employee.entity", "EmployeeEntity", "java/mapper/TableMapper.ftl", "xml"));
-		pojos.add(new Pojo("dovefly-orm/src/main/java/cn/dovefly/orm/employee/entity", "cn.dovefly.orm.employee.entity", "EmployeeEntity", "java/entity/TableEntity.ftl", "java"));
-		pojos.add(new Pojo("dovefly-orm/src/main/java/cn/dovefly/orm/employee/repo", "cn.dovefly.orm.employee.repo", "EmployeeRepo", "java/repo/TableRepo.ftl", "java"));
-		pojos.add(new Pojo("dovefly-service/src/main/java/cn/dovefly/service/employee", "cn.dovefly.service.employee", "EmployeeService", "java/service/TableService.ftl", "java"));
-		pojos.add(new Pojo("dovefly-service/src/main/java/cn/dovefly/service/employee/impl", "cn.dovefly.service.employee.impl", "EmployeeServiceImpl", "java/service/impl/TableServiceImpl.ftl", "java"));
-		pojos.add(new Pojo("dovefly-web/src/main/java/cn/dovefly/web/employee", "cn.dovefly.web.employee", "EmployeeController", "java/web/TableController.ftl", "java"));
+		this.pojos = new HashMap<>();
+		pojos.put("mapper", new Pojo("dovefly-orm/src/main/resources/mybatis/mapper/employee", "cn.dovefly.orm.employee.entity", "EmployeeEntity", "java/mapper/TableMapper.ftl", "xml"));
+		pojos.put("entity", new Pojo("dovefly-orm/src/main/java/cn/dovefly/orm/employee/entity", "cn.dovefly.orm.employee.entity", "EmployeeEntity", "java/entity/TableEntity.ftl", "java"));
+		pojos.put("repo", new Pojo("dovefly-orm/src/main/java/cn/dovefly/orm/employee/repo", "cn.dovefly.orm.employee.repo", "EmployeeRepo", "java/repo/TableRepo.ftl", "java"));
+		pojos.put("service", new Pojo("dovefly-service/src/main/java/cn/dovefly/service/employee", "cn.dovefly.service.employee", "EmployeeService", "java/service/TableService.ftl", "java"));
+		pojos.put("serviceImpl", new Pojo("dovefly-service/src/main/java/cn/dovefly/service/employee/impl", "cn.dovefly.service.employee.impl", "EmployeeServiceImpl", "java/service/impl/TableServiceImpl.ftl", "java"));
+		pojos.put("controller", new Pojo("dovefly-web/src/main/java/cn/dovefly/web/employee", "cn.dovefly.web.employee", "EmployeeController", "java/web/TableController.ftl", "java"));
 
 	}
 
@@ -61,11 +63,11 @@ public class DbTable {
 		this.columns = columns;
 	}
 
-	public List<Pojo> getPojos() {
+	public Map<String, Pojo> getPojos() {
 		return pojos;
 	}
 
-	public void setPojos(List<Pojo> pojos) {
+	public void setPojos(Map<String, Pojo> pojos) {
 		this.pojos = pojos;
 	}
 

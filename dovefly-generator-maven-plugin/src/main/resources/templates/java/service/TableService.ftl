@@ -1,6 +1,6 @@
-package ${table.servicePackageName};
+package ${table.pojos.service.packageName};
 
-import ${table.entityFullClassName};
+import ${table.pojos.entity.fullClassName};
 import java.util.List;
 
 /**
@@ -9,13 +9,13 @@ import java.util.List;
 * @author fengcm
 * @date 2017-07-27
 */
-public interface ${table.serviceClassName} {
+public interface ${table.pojos.service.className} {
 
-    int save(${table.entityClassName} entity);
+    int save(${table.pojos.entity.className} entity);
 
     int delete(${table.keyColumn.javaTypeShort} ${table.keyColumn.propertyName});
 
-    ${table.entityClassName} get(${table.keyColumn.javaTypeShort} ${table.keyColumn.propertyName});
+    ${table.pojos.entity.className} get(${table.keyColumn.javaTypeShort} ${table.keyColumn.propertyName});
 
-    List<${table.entityClassName}> queryAllList();
+    List<${table.pojos.entity.className}> queryAllList();
 }

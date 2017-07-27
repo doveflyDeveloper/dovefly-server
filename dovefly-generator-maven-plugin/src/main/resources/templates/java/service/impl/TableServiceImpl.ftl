@@ -1,8 +1,8 @@
-package ${table.serviceImplPackageName};
+package ${table.pojos.serviceImpl.packageName};
 
-import ${table.serviceFullClassName};
-import ${table.repoFullClassName};
-import ${table.entityFullClassName};
+import ${table.pojos.service.fullClassName};
+import ${table.pojos.repo.fullClassName};
+import ${table.pojos.entity.fullClassName};
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -18,16 +18,16 @@ import java.util.List;
  * @date 2017-07-27
  */
 @Service
-public class ${table.serviceImplClassName} implements ${table.serviceClassName} {
+public class ${table.pojos.serviceImpl.className} implements ${table.pojos.service.className} {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(${table.serviceImplClassName}.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(${table.pojos.serviceImpl.className}.class);
 
 	@Resource
-	private ${table.repoClassName} repo;
+	private ${table.pojos.repo.className} repo;
 
 	@Override
 	@Transactional
-	public int save(${table.entityClassName} entity) {
+	public int save(${table.pojos.entity.className} entity) {
 		if (entity == null) {
 			return 0;
 		}
@@ -45,12 +45,12 @@ public class ${table.serviceImplClassName} implements ${table.serviceClassName} 
 	}
 
 	@Override
-	public ${table.entityClassName} get(${table.keyColumn.javaTypeShort} ${table.keyColumn.propertyName}) {
+	public ${table.pojos.entity.className} get(${table.keyColumn.javaTypeShort} ${table.keyColumn.propertyName}) {
 		return repo.selectByKey(key);
 	}
 
 	@Override
-	public List<${table.entityClassName}> queryAllList() {
+	public List<${table.pojos.entity.className}> queryAllList() {
     	return repo.selectList();
     }
 

@@ -110,14 +110,15 @@ public class FreeMarkerUtil {
 			Configuration configuration = getConfiguration(templateDir);
 			configuration.setDefaultEncoding(ENCODING);
 
-			for (Pojo pojo : table.getPojos()) {
+			for (Pojo pojo : table.getPojos().values()) {
+
 				Template template = configuration.getTemplate(pojo.getTemplateFile(), ENCODING);
 				// 输出文档路径及名称
-				String destFilePath = pojo.getTargetProject() + "/" + pojo.getClass() + "." + pojo.getFileType();
+				String destFilePath = pojo.getTargetProject() + "/" + pojo.getClassName() + "." + pojo.getFileType();
 				File outFile = new File(destFilePath);
-//				if (!outFile.getParentFile().exists()) {
-//					outFile.getParentFile().mkdirs();
-//				}
+				if (!outFile.getParentFile().exists()) {
+					outFile.getParentFile().mkdirs();
+				}
 
 				Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), ENCODING));
 				template.process(dataMap, out);

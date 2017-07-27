@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="${table.entityFullClassName}Mapper">
-    <resultMap id="BaseResultMap" type="${table.entityFullClassName}">
+<mapper namespace="${table.pojos.mapper.fullClassName}Mapper">
+    <resultMap id="BaseResultMap" type="${table.pojos.mapper.fullClassName}">
         <constructor>
             <idArg column="${table.keyColumn.columnName}" javaType="${table.keyColumn.javaType}" jdbcType="${table.keyColumn.jdbcType}"/>
             <#list table.columnsWithoutKey as column>
@@ -14,7 +14,7 @@
         ${table.keyColumn.columnName}<#list table.columnsWithoutKey as column>, ${column.columnName}</#list>
     </sql>
 
-    <insert id="insert" keyColumn="${table.keyColumn.columnName}" keyProperty="${table.keyColumn.propertyName}" parameterType="${table.entityFullClassName}" useGeneratedKeys="true">
+    <insert id="insert" keyColumn="${table.keyColumn.columnName}" keyProperty="${table.keyColumn.propertyName}" parameterType="${table.pojos.mapper.fullClassName}" useGeneratedKeys="true">
         INSERT INTO ${table.tableName} (
         <#list table.columnsWithoutKey as column>
             ${column.columnName}<#if column_has_next>,</#if>
@@ -26,7 +26,7 @@
         )
     </insert>
 
-    <insert id="insertSelective" keyColumn="${table.keyColumn.columnName}" keyProperty="${table.keyColumn.propertyName}" parameterType="${table.entityFullClassName}" useGeneratedKeys="true">
+    <insert id="insertSelective" keyColumn="${table.keyColumn.columnName}" keyProperty="${table.keyColumn.propertyName}" parameterType="${table.pojos.mapper.fullClassName}" useGeneratedKeys="true">
         INSERT INTO ${table.tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
         <#list table.columnsWithoutKey as column>
@@ -49,7 +49,7 @@
         WHERE ${table.keyColumn.columnName} = ${table.keyColumn.propertyNameWithJdbcType}
     </delete>
 
-    <update id="updateByPrimaryKeySelective" parameterType="${table.entityFullClassName}">
+    <update id="updateByPrimaryKeySelective" parameterType="${table.pojos.mapper.fullClassName}">
         UPDATE ${table.tableName}
         <set>
         <#list table.columnsWithoutKey as column>
@@ -61,7 +61,7 @@
         WHERE ${table.keyColumn.columnName} = ${table.keyColumn.propertyNameWithJdbcType}
     </update>
 
-    <update id="updateByPrimaryKey" parameterType="${table.entityFullClassName}">
+    <update id="updateByPrimaryKey" parameterType="${table.pojos.mapper.fullClassName}">
         UPDATE ${table.tableName}
         SET
         <#list table.columnsWithoutKey as column>
