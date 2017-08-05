@@ -5,6 +5,9 @@ import cn.dovefly.service.user.IUserService;
 import cn.dovefly.service.user.impl.UserService;
 import cn.dovefly.test.common.BaseTest;
 import org.junit.Test;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.annotation.Resource;
 
@@ -36,4 +39,16 @@ public class UserServiceTest extends BaseTest {
 
     }
 
+
+
+        public static void main(String[] args) {
+            ExecutorService executor = Executors.newCachedThreadPool();
+            executor.submit(new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    System.out.println("xxxxxxxxxxx");
+                    return null;
+                }
+            });
+        }
 }
